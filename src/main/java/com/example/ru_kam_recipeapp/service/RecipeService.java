@@ -32,6 +32,4 @@ public class RecipeService {
     public Collection<Recipe> getAllRecipes() {
         return recipes.values();
     }
-
-
 }

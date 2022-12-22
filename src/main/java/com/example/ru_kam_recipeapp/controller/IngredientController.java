@@ -25,6 +25,7 @@ public class IngredientController {
     public Ingredient getIngredient(@PathVariable("id") String id) {
         return this.ingredientService.getIngredient(id);
     }
+
     @PostMapping
     public Ingredient addIngredient(@RequestBody Ingredient ingredient) {
         return this.ingredientService.addIngredient(ingredient);
