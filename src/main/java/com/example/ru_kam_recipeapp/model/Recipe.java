@@ -36,5 +36,4 @@ public class Recipe {
     public List<String> getCookingStep() {
         return cookingStep;
     }
-
 }

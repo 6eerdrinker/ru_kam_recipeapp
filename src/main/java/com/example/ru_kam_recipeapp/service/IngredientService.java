@@ -24,7 +24,6 @@ public class IngredientService {
         return ingredients.values();
     }
 
-
     public Ingredient addIngredient(Ingredient ingredient) {
         if (ingredients.containsKey(ingredient.getIngredientName())) {
             throw new RuntimeException("Такой ингредиент уже есть!");
