@@ -1,36 +1,23 @@
 package com.example.ru_kam_recipeapp.service;
 
+
 import com.example.ru_kam_recipeapp.model.Ingredient;
-import org.springframework.stereotype.Service;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
-@Service
+import java.util.List;
 
-public class IngredientService {
+public interface IngredientService {
+    //Метод добавления ингредиента
+    Ingredient add(Ingredient ingredient);
 
-    private final Map<String, Ingredient> ingredients = new HashMap<>();
+    //Метод получения ингредиента по идентификатору
+    Ingredient get(long id);
 
+    //Метод получения списка ингредиентов
+    List<Ingredient> getAll();
 
-    public Ingredient getIngredient(String id) {
-        if (ingredients.containsKey(id)) {
-            return ingredients.get(id);
-        } else {
-            throw new RuntimeException("Такой номер ингредиента не найден!");
-        }
-    }
-    public Collection<Ingredient> getAllIngredients() {
-        return ingredients.values();
-    }
+    //Метод редактирования ингредиента по идентификатору
+    Ingredient update(long id, Ingredient ingredient);
 
-    public Ingredient addIngredient(Ingredient ingredient) {
-        if (ingredients.containsKey(ingredient.getIngredientName())) {
-            throw new RuntimeException("Такой ингредиент уже есть!");
-        }else {
-            ingredients.put(ingredient.getIngredientName(), ingredient);
-        }
-        return ingredient;
-    }
-
+    //Метод удаления ингредиента по идентификатору
+    Ingredient delete(long id);
 }

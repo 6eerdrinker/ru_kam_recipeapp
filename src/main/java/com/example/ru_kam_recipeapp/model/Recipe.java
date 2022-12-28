@@ -5,35 +5,43 @@ import java.util.List;
 
 
 public class Recipe {
-    private final String id;
-    private final String recipeName;
-    private final int preparingTime;
-    private final ArrayList<Ingredient> ingredients = new ArrayList<>(50);
-    private final ArrayList<String> cookingStep = new ArrayList<>();
+    private String recipeName;
 
-    public Recipe(String id, String recipeName, int preparingTime) {
-        this.id = id;
-        this.recipeName = recipeName;
-        this.preparingTime = preparingTime;
-    }
+    private int preparingTime;
 
-    public String getId() {
-        return id;
-    }
+    private List<Ingredient> ingredients;
+
+    private List<String> cookingSteps;
 
     public String getRecipeName() {
         return recipeName;
+    }
+
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
     public int getPreparingTime() {
         return preparingTime;
     }
 
-    public ArrayList<Ingredient> getIngredients() {
+    public void setPreparingTime(int preparingTime) {
+        this.preparingTime = preparingTime;
+    }
+
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public List<String> getCookingStep() {
-        return cookingStep;
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public List<String> getCookingSteps() {
+        return cookingSteps;
+    }
+
+    public void setCookingSteps(List<String> cookingStep) {
+        this.cookingSteps = cookingStep;
     }
 }
