@@ -8,7 +8,7 @@ GET http://localhost:8080/info
 GET http://localhost:8080/recipe
 
 ### Получение нужного рецепта из списка по id
-GET http://localhost:8080/recipe/2
+GET http://localhost:8080/recipe/0
 
 ### Создание нового рецепта 1
 POST http://localhost:8080/recipe
