@@ -43,7 +43,7 @@ public class IngredientController {
                             description = "Новый ингредиент добавлен",
                             content = { @Content(
                                     mediaType = "application/jason",
-                                    array = @ArraySchema(schema = @Schema(implementation = Recipe.class)))
+                                    array = @ArraySchema(schema = @Schema(implementation = Ingredient.class)))
                             }
                     )
             }
@@ -73,7 +73,7 @@ public class IngredientController {
                             description = "Необходимый ингредиент найден",
                             content = { @Content(
                                     mediaType = "application/jason",
-                                    array = @ArraySchema(schema = @Schema(implementation = Recipe.class)))
+                                    array = @ArraySchema(schema = @Schema(implementation = Ingredient.class)))
                             }
                     )
             }

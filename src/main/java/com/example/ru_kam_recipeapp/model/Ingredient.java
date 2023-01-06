@@ -1,10 +1,13 @@
 package com.example.ru_kam_recipeapp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Ingredient {
 
     private  String ingredientName;
@@ -13,6 +16,6 @@ public class Ingredient {
 
     private  String unit;
 
-    private List<Ingredient> ingredients;
+    //private List<Ingredient> ingredients;
 
 }
