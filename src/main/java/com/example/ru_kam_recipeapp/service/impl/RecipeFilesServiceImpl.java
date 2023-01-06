@@ -1,5 +1,6 @@
 package com.example.ru_kam_recipeapp.service.impl;
 import com.example.ru_kam_recipeapp.service.RecipeFilesService;
+import com.example.ru_kam_recipeapp.service.myException.JsonMyException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
@@ -18,14 +19,14 @@ public class RecipeFilesServiceImpl implements RecipeFilesService {
 
 
     @Override
-    public boolean saveRecipeToJsonFile(String json) {
+    public void saveRecipeToJsonFile(String json) {
         try {
             cleanRecipeDataFile();
             Files.writeString(Path.of(recipeFileDirectory, nameDataRecipeFile), json);
-            return true;
         } catch (IOException e) {
-            return false;
-        }}
+            e.printStackTrace();
+        }
+    }
 
 
     @Override
@@ -33,7 +34,7 @@ public class RecipeFilesServiceImpl implements RecipeFilesService {
         try {
             return Files.readString(Path.of(recipeFileDirectory, nameDataRecipeFile));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new JsonMyException("Не удалось прочитать Json-файл!");
         }
     }
     @Override

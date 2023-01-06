@@ -16,6 +16,5 @@ public class Ingredient {
 
     private  String unit;
 
-    //private List<Ingredient> ingredients;
 
 }

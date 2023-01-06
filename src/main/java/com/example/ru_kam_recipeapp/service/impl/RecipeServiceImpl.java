@@ -1,15 +1,13 @@
 package com.example.ru_kam_recipeapp.service.impl;
 
-import com.example.ru_kam_recipeapp.model.Ingredient;
 import com.example.ru_kam_recipeapp.model.Recipe;
-import com.example.ru_kam_recipeapp.service.IngredientFilesService;
+import com.example.ru_kam_recipeapp.service.myException.JsonMyException;
 import com.example.ru_kam_recipeapp.service.RecipeFilesService;
 import com.example.ru_kam_recipeapp.service.RecipeService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.PostConstruct;
 import java.util.*;
 
@@ -43,7 +41,7 @@ import java.util.*;
         if (recipesMap.containsKey(id)) {
             return recipesMap.get(id);
         } else {
-            throw new RuntimeException("Рецепт с таким id не найден!");
+            throw new JsonMyException("Рецепт с таким id не найден!");
         }
     }
 
@@ -62,7 +60,7 @@ import java.util.*;
                 return recipe;
             }
             else {
-                throw new RuntimeException("Рецепт с таким id не найден!");
+                throw new JsonMyException("Рецепт с таким id не найден!");
             }
         }
     //Метод удаления рецепта
@@ -71,7 +69,7 @@ import java.util.*;
             if (recipesMap.containsKey(id)) {
                 return recipesMap.remove(id);
             } else {
-                throw new RuntimeException("Рецепт с таким id не найден!");
+                throw new JsonMyException("Рецепт с таким id не найден!");
             }
         }
     private void saveRecipeToJsonFile() {
@@ -79,7 +77,9 @@ import java.util.*;
             String json = new ObjectMapper().writeValueAsString(recipesMap);
             filesService.saveRecipeToJsonFile(json);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        } catch (JsonMyException e) {
+            throw new JsonMyException("Не удалось записать Json-файл!");
         }
     }
 
@@ -90,7 +90,9 @@ import java.util.*;
                     new TypeReference<LinkedHashMap<Long, Recipe>>() {
                     });
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        } catch (JsonMyException e) {
+            throw new JsonMyException("Не удалось прочитать Json-файл!");
         }
     }
     }
