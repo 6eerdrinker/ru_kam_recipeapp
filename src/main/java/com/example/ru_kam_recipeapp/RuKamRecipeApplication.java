@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RuKamRecipeappApplication {
+public class RuKamRecipeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RuKamRecipeappApplication.class, args);
+        SpringApplication.run(RuKamRecipeApplication.class, args);
     }
 
 }
