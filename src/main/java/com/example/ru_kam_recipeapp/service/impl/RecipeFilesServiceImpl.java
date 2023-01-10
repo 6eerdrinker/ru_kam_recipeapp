@@ -3,6 +3,8 @@ import com.example.ru_kam_recipeapp.service.RecipeFilesService;
 import com.example.ru_kam_recipeapp.service.myException.JsonMyException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,6 +38,11 @@ public class RecipeFilesServiceImpl implements RecipeFilesService {
         } catch (IOException e) {
             throw new JsonMyException("Не удалось прочитать Json-файл!");
         }
+    }
+
+    @Override
+    public File getRecipeDataFile() {
+        return new File(recipeFileDirectory +"/"+ nameDataRecipeFile);
     }
     @Override
     public void cleanRecipeDataFile() {

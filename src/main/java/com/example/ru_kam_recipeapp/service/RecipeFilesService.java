@@ -1,5 +1,7 @@
 package com.example.ru_kam_recipeapp.service;
 
+import java.io.File;
+
 public interface RecipeFilesService {
     void saveRecipeToJsonFile(String json);
 
@@ -8,5 +10,6 @@ public interface RecipeFilesService {
 
     void cleanRecipeDataFile();
 
+    File getRecipeDataFile();
 }
 
